@@ -91,62 +91,106 @@ export default {
 </script>
 
 <style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  
 }
-body{
-  font-family: sans-serif;
+body {
+	font-family: sans-serif;
+  
 }
-header{
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+
+	background-color: #212121;
+	color: #FFF;
+}
+main {
+  width: 100%;
+  height: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 25px;
+  background-image: url('./assets/images.jpg');
+  background-size:cover ;
+}
+.song-title {
+  color: #53565A;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+.song-title span {
+  font-weight: 400;
+  font-style: italic;
+}
+
+#control{
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
-  padding: 15px;
-  background-color: #212121;
+  padding: 30px 15px;
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.8;
+}
+.play, .pause {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 15px 25px;
+  margin: 0px 15px;
+  border-radius: 8px;
   color: #FFF;
+  background-color: #CC2E5D;
 }
-.prev {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 250px 0px 0px 250px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+
+.next, .prev {
   font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
+  font-weight: 700;
+  padding: 10px 20px;
+  margin: 0px 15px;
+  border-radius: 6px;
+  color: #FFF;
+  background-color: #FF5858;
+}
+  .playlist {
+  padding: 0px 30px;
+}
+.playlist h3 {
+  color: #212121;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.playlist .song {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
 }
-.play , .pause {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 10px 10px 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+.playlist .song:hover {
+  color: #FF5858;
 }
-.next {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 0px 500px 500px 0px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+
+.playlist .song.playing {
+  color: #FFF;
+  background-image: linear-gradient(to right, #CC2E5D, #FF5858);
 }
 </style>
