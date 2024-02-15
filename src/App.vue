@@ -9,10 +9,10 @@
        <span>{{ current.artist }}</span>
       </h2>
       <div id="control">
-        <button class="prev"> Prev. </button>
+        <button class="prev" @click="prev"> Prev. </button>
         <button class="play" v-if="!isPlaying" @click="play">Play</button>
         <button class="pause" v-else  @click="pause">Pause</button>
-        <button class="next">Next</button>
+        <button class="next" @click="next">Next</button>
       </div>
     </section>
     <section class="playlist">
@@ -63,7 +63,23 @@ export default {
    pause(){
     this.player.pause();
     this.isPlaying= false;
-   }  
+   }  ,
+   next(){
+    this.index++;
+    if(this.index> this.songs.length-1){
+      this.index=0;
+    }
+    this.current= this.songs[this.index];
+    this.play(this.current);
+   },
+   prev(){
+    this.index--;
+    if(this.index> 0){
+      this.index=this.songs.length-1;
+    }
+    this.current= this.songs[this.index];
+    this.play(this.current);
+   }
  },
   created(){
     this.current= this.songs[this.index];
